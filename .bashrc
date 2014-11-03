@@ -162,7 +162,7 @@ shopt -s histappend
 
 # Make prompt informative
 # See:  http://www.ukuug.org/events/linux2003/papers/bash_tips/
-PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
+PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\] "
 
 ## -----------------------
 ## -- 2) Set up aliases --
@@ -216,12 +216,15 @@ export NODE_DISABLE_COLORS=1
 if [ -s ~/.nvm/nvm.sh ]; then
     NVM_DIR=~/.nvm
     source ~/.nvm/nvm.sh
-    nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
+    nvm use v0.11.14 &> /dev/null # silence nvm use; needed for rsync
 fi
 
 ## ------------------------------
 ## -- 3) User-customized code  --
 ## ------------------------------
+# User specific environment and startup programs
+bind '"\x1b\x5b\x41":history-search-backward'
+bind '"\x1b\x5b\x42":history-search-forward'
 
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
